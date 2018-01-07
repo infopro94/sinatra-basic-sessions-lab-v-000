@@ -12,7 +12,9 @@ class App < Sinatra::Base
   end
 
   post '/checkout' do
-    @checkout = {}
+    session[:item] = params[:item]
+      @session = session
+      erb :checkout
     #session hash << params from form
     #key = item & value = item in user's cart
     #instance variable = {session hash} - access in views
